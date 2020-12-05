@@ -1,0 +1,380 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+body {
+  background: url(mypage.jpg) no-repeat;
+  background-size: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar {
+  width: 52%;
+  background-color: rgba(85, 85, 85, 0);
+  overflow: hidden;
+  float: right;
+}
+
+/* Навбар ссылки */
+.navbar a {
+  float: left;
+  font-family: "Noto Sans JP", sans-serif;
+  text-align: center;
+  padding: 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Ссылки навбар при наведении мыши */
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.37);
+  border-width: 5px 0;
+  border-radius: 6px;
+}
+
+/* Текущая / активная навигационная ссылка */
+.active {
+  background-color: #73cffa;
+  border-width: 5px 0;
+  border-radius: 6px;
+}
+
+/* Добавить адаптивность - автоматически отображает панель навигации вертикально, а не горизонтально на экранах менее 500 пикселей */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+.name {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+  overflow: hidden;
+}
+
+.description {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 20px;
+  color: white;
+  overflow: hidden;
+  float: left; /* Обтекание справа */
+  width: 55%;
+  text-align: right;
+  margin-top: 2%;
+  position: relative;
+}
+.login {
+  font-weight: lighter;
+  color: rgba(131, 125, 125, 0.699);
+}
+
+.edit {
+  font-size: 40px;
+  display: block;
+}
+
+.open-ram {
+  margin-left: -25%;
+  position: fixed;
+  height: 100px;
+  margin-top: 11%;
+}
+
+.nameing {
+  float: left; /* Обтекание справа */
+  width: 30%;
+}
+
+.close {
+  float: left;
+  position: relative;
+  font-size: 24px;
+  text-decoration: none;
+  margin-left: 1%;
+  border-radius: 40px;
+  z-index: 1;
+  cursor: pointer;
+}
+.close:before {
+  content: "+";
+  color: hsl(199, 98%, 60%);
+  position: absolute;
+  z-index: 2;
+  transform: rotate(45deg);
+  font-size: 50px;
+  line-height: 1;
+  top: -5px;
+  left: 6px;
+  transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+}
+.close:hover:after {
+  transform: scale(1);
+}
+.close:hover:before {
+  transform: scale(0.8) rotate(45deg);
+  color: #16a2e3;
+}
+
+.ram {
+  margin-left: 20%;
+  margin-top: 11%;
+  background-color: rgba(232, 244, 247, 0.705);
+  width: 60%;
+  height: 40%;
+  border: 5px solid rgba(12, 172, 247, 0.089);
+  border-radius: 10px;
+  display: none;
+}
+
+.ram.visible {
+  display: block;
+}
+
+#sumbit {
+  font-family: "Noto Sans JP", sans-serif;
+  cursor: pointer;
+  margin-left: 10%;
+  margin-top: 0.5%;
+  font-size: 20px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 0.2em 1em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: hsl(199, 98%, 60%) #000 hsl(189, 95%, 43%);
+  border-radius: 6px;
+  background: linear-gradient(#0fbef3, #16c4e3) #16a2e3;
+  transition: 0.2s;
+}
+#sumbit:hover {
+  background: linear-gradient(#00bcf5, #009bf5) #00a7f5;
+}
+#sumbit:active {
+  background: linear-gradient(#00d8f5, #009bf5) #00c4f5;
+}
+
+.question-kkal{
+  width:75%;
+  margin-left: 12.5%;
+}
+
+.question-kkal td{
+  font-size: 20px;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.question{
+  font-size: 20px;
+  font-family: "Noto Sans JP", sans-serif;
+  color: #00a7f5;
+}
+
+input[type="radio"]{
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+
+input[type="file"]{
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  margin-right: 0.25em;
+}
+
+label span {
+  color: white;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+input[type="file"]+label{
+  font-family: "Noto Sans JP", sans-serif;
+  cursor: pointer;
+  margin-left: 15%;
+  margin-top: 0.5%;
+  font-size: 20px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 0.2em 1em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: hsl(199, 98%, 60%) #000 hsl(189, 95%, 43%);
+  border-radius: 6px;
+  background: linear-gradient(#0fbef3, #16c4e3) #16a2e3;
+  transition: 0.2s;
+}
+input[type="file"]+label:hover {
+  background: linear-gradient(#00bcf5, #009bf5) #00a7f5;
+}
+input[type="file"]+label:active {
+  background: linear-gradient(#00d8f5, #009bf5) #00c4f5;
+}
+
+
+
+
+input[type="number"],
+input[type="text"] {
+  font-size: 18px;
+  outline: none;
+  border-style: solid;
+  border-color: hsl(199, 98%, 60%) hsl(189, 95%, 43%);
+  border-radius: 6px;
+}
+
+table.ram-form {
+  margin-left: 5%;
+  width: 90%;
+  font-size: 18px;
+  font-family: "Noto Sans JP", sans-serif;
+  color: hsl(199, 98%, 60%);
+  letter-spacing: 0.1em;
+}
+
+.logo-login {
+  height: 115px;
+  border-radius: 50%;
+
+  border: 5px solid rgba(255, 255, 255, 0.2);
+}
+
+.app {
+  margin-top: 11%;
+}
+
+.app.up {
+  margin-top: 1%;
+}
+
+#textarea {
+  margin-left: 13%;
+  overflow: hidden;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14pt;
+  resize: none;
+  width: 70%;
+  height: 49px;
+  display: block;
+  color: black;
+  text-decoration: none;
+  padding: 7px;
+  outline: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: hsl(199, 98%, 60%) hsl(189, 95%, 43%);
+  border-radius: 6px;
+  background: white;
+  transition: 0.2s;
+}
+
+.tweet-content {
+  display: flex;
+  padding: 10px;
+}
+
+.status {
+  width: 600px;
+  margin: 10px auto;
+  font-family: "Noto Sans JP", sans-serif;
+  border-radius: 10px;
+  border: 5px solid rgba(0, 174, 255, 0.171);
+  background-color: white;
+}
+
+.logo {
+  height: 75px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.characters-remaining {
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+span {
+  color: grey;
+}
+
+.comment-bar {
+  background-color: #f5f8fa;
+  padding: 10px;
+  border-top: 1px solid #e6ecf0;
+  border-radius: 2%;
+  font-family: "Noto Sans JP", sans-serif;
+  display: none;
+}
+.comment-bar.visible {
+  display: block;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #1da1f2;
+  font-family: "Noto Sans JP", sans-serif;
+  border-radius: 2px;
+  outline: none;
+  resize: none;
+  height: 40px;
+  padding: 2px;
+}
+
+.like {
+  cursor: pointer;
+  font-size: 15px;
+}
+.like .red {
+  display: none;
+}
+.like .red.visible {
+  display: flex;
+}
+.white::before {
+  display: flex;
+  content: "\1F90D";
+}
+.white.invisible::before {
+  content: "\2764";
+}
+
+.open-comment {
+  height: 20px;
+}
+
+.workout-index {
+  width: 193%;
+  text-align: center;
+  background-color: #f5f8fa;
+  padding: 10px;
+  border: 2px solid #f1f2f3cb;
+  border-radius: 10px;
+  margin-left: -26.5%;
+}
+
+.tweet-index {
+  font-size: 18px;
+  font-family: "Noto Sans JP", sans-serif;
+  color: hsl(199, 98%, 60%);
+  font-weight: bold;
+}

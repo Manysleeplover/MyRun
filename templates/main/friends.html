@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="static/main/js/news.js" defer></script>
+        <link rel="stylesheet" href="static/main/css/friends.css" />
+        <meta charset="utf-8" />
+        <title>Подписки</title>
+    </head>
+    <body>
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <div class="navbar">
+            <a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a>
+            <a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a>
+            <a class="active" href="#"><i class="fa fa-fw fa-users"></i> Подписки</a>
+            <a href="/settings"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
+            <a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a>
+        </div>
+        <table class="nameing">
+            <tr>
+            <th><img src="static/main/css/runner.png" class="logo-login" alt="logo"></th>
+            <td ><div class='name'>Имя<div class='login'>@Логин</div></div></td>
+            </tr>
+        </table>
+        <div id="app" class="app">
+            <div class="status">
+                <div class="tweet-content">
+                    <a href="#"><img src="static/main/css/runner.png" class="logo" alt="logo"></a>
+                    <div class="tweet">
+                        <a href="#">Name</a>
+                        <span>@login</span>
+                        <p class="description">
+                            Описание профиля и данные(возраст,страна и тд.)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

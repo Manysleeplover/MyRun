@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Авторизация</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'users/css/entry.css' %}" type="text/css" />
+  </head>
+  <body>
+    <div class="dws-wrapper">
+      <div class="dws-form">
+        <label class="tab" id="tab-1">Авторизация</label>
+
+
+       <form method="post" action="{% url 'login' %}" class="tab-form active">
+          {% csrf_token %}
+          <div class="box-input">
+            <p>{{ form.username }}
+            <label>Введите имя пользователя </label></p>
+          </div>
+          <div class="box-input">
+            <p>{{ form.password }}
+            <label>Введите пароль</label></p>
+          </div>
+          <input type="hidden" name="next" value="{{ next }}" />
+          <input type="submit" class="button" value="Войти"/>
+          <ul class="social">
+            <li>
+              <a href="#"
+                ><div><i class="fa fa-facebook"></i></div
+              ></a>
+            </li>
+            <li>
+              <a href="#"
+                ><div><i class="fa fa-twitter"></i></div
+              ></a>
+            </li>
+            <li>
+              <a href="#"
+                ><div><i class="fa fa-instagram"></i></div
+              ></a>
+            </li>
+            <li>
+              <a href="#"
+                ><div><i class="fa fa-vk"></i></div
+              ></a>
+            </li>
+            <li>
+              <a href="#"
+                ><div><i class="fa fa-youtube"></i></div
+              ></a>
+            </li>
+          </ul>
+          <p><a href="{% url 'password_reset' %}">Я забыл свой пароль</a></p>
+           <p></p>
+          <a  class="not-entry" href="{% url 'register' %}">Еще не зарегистрированы?</a>
+        </form>
+
+      </div>
+
+      </div>
+      </div>
+    </div>
+  </body>
+</html>

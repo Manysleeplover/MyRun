@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Редактирование аккаунта</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'users/css/register.css' %}" type="text/css" />
+    <script src="{% static 'users/css/register.js' %}" defer></script>
+  </head>
+  <body>
+  <div class="navbar">
+  <a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a>
+  <a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a>
+  <a href="/friends"><i class="fa fa-fw fa-users"></i> Подписки</a>
+  <a href="/settings"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
+  <a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a>
+</div>
+  <h1>Изменить ваш аккаунт</h1>
+ <p>Вы можете изменить ваш аккаунт, используя следующие формы:</p>
+ <form action="." method="post" enctype="multipart/form-data">
+ {{ user_form.as_p }}
+ {{ profile_form.as_p }}
+ {% csrf_token %}
+ <p><input type="submit" value="Сохранить изменения"></p>
+ </form>
+  </body>
+</html>

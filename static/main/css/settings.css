@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+body {
+  background: url(settings.jpg) no-repeat;
+  background-size: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar {
+  width: 62%;
+  margin-top: 1.2%;
+  background-color: rgba(85, 85, 85, 0);
+  overflow: hidden;
+  margin-left: 38%;
+
+}
+
+/* Навбар ссылки */
+.navbar a {
+  float: left;
+  font-family: "Noto Sans JP", sans-serif;
+  text-align: center;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Ссылки навбар при наведении мыши */
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.37);
+  border-width: 5px 0;
+  border-radius: 6px;
+}
+
+/* Текущая / активная навигационная ссылка */
+.active {
+  background-color: #73cffa;
+  border-width: 5px 0;
+  border-radius: 6px;
+}
+
+/* Добавить адаптивность - автоматически отображает панель навигации вертикально, а не горизонтально на экранах менее 500 пикселей */
+@media screen and (max-width: 500px) {
+.navbar a {
+    float: none;
+    display: block;
+
+}}
+
+
+.settings{
+    margin-top: 2%;
+}
+
+a.button {
+    text-decoration: none;
+  outline: none;
+  display: inline-block;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  position: relative;
+  color: white;
+  border: 2px solid rgba(255,255,255,.4);
+  background: none;
+  font-weight: 300;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 10px;
+}
+a.button:before,
+a.button:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    box-sizing: border-box;
+
+  }
+  a.button:before {
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
+  }
+  a.button:after {
+    top: 0;
+
+    right: 0;
+    border-radius: 10px;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    transition: 0s ease opacity .4s, .2s ease width , .2s ease height .2s;
+  }
+  a.button:hover:before,
+  a.button:hover:after{
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+  a.button:hover:before {transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;}
+  a.button:hover:after {transition: 0s ease opacity .4s, .2s ease height .4s , .2s ease width .6s;}
+  a.button:hover {background: rgba(255,255,255,.2); }

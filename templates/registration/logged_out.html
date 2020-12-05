@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Выход</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'users/css/entry.css' %}" type="text/css" />
+    <script src="{% static 'users/js/entry.js' %}" defer></script>
+  </head>
+  <body>
+    <div class="dws-wrapper">
+            <p>Вы вышли из аккаунта.
+        Вы можете <a href="{% url 'login' %}">авторизоваться</a> вновь.
+        </p>
+          </div>
+  </body>
+</html>

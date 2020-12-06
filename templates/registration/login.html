@@ -18,11 +18,11 @@
         <label class="tab" id="tab-1">Авторизация</label>
 
 
-       <form method="post" action="{% url 'login' %}" class="tab-form active">
+       <form method="post" action="{% url 'login' %}" class="tab-form">
           {% csrf_token %}
           <div class="box-input">
             <p>{{ form.username }}
-            <label>Введите имя пользователя </label></p>
+            <label>Введите логин</label></p>
           </div>
           <div class="box-input">
             <p>{{ form.password }}
@@ -30,12 +30,7 @@
           </div>
           <input type="hidden" name="next" value="{{ next }}" />
           <input type="submit" class="button" value="Войти"/>
-          <ul class="social">
-            <li>
-              <a href="#"
-                ><div><i class="fa fa-facebook"></i></div
-              ></a>
-            </li>
+           <ul class="social">
             <li>
               <a href="#"
                 ><div><i class="fa fa-twitter"></i></div
@@ -49,11 +44,6 @@
             <li>
               <a href="#"
                 ><div><i class="fa fa-vk"></i></div
-              ></a>
-            </li>
-            <li>
-              <a href="#"
-                ><div><i class="fa fa-youtube"></i></div
               ></a>
             </li>
           </ul>

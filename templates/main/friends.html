@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="static/main/js/news.js" defer></script>
+        <script src="static/main/js/friends.js" defer></script>
         <link rel="stylesheet" href="static/main/css/friends.css" />
         <meta charset="utf-8" />
         <title>Подписки</title>
@@ -11,19 +11,27 @@
         <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-        <div class="navbar">
-            <a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a>
-            <a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a>
-            <a class="active" href="#"><i class="fa fa-fw fa-users"></i> Подписки</a>
-            <a href="/settings"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
-            <a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a>
-        </div>
+        <ul class="navbar">
+            <li><a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li> 
+            <li><a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a></li>
+            <li><a class="active" ><i class="fa fa-fw fa-users"></i> Подписки</a></li>
+                <li><a><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
+            <ul>
+                <li><a href="edit.html">Изменить профиль</a></li>
+                <li><a href="changePassword.html">Изменить пароль</a></li>
+            </ul> </li>
+        <li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a></li>
+        </ul>
         <table class="nameing">
             <tr>
             <th><img src="static/main/css/runner.png" class="logo-login" alt="logo"></th>
             <td ><div class='name'>Имя<div class='login'>@Логин</div></div></td>
             </tr>
         </table>
+        <form>
+            <input type="text" placeholder="Ищите подписки...">
+            <button type="submit"></button>
+        </form>
         <div id="app" class="app">
             <div class="status">
                 <div class="tweet-content">

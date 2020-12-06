@@ -6,30 +6,72 @@ body {
   background-color: rgb(255, 255, 255);
 }
 
-.navbar {
-  width: 52%;
-  background-color: rgba(85, 85, 85, 0);
-  overflow: hidden;
-  float: right;
+.navbar ul {
+  display: none;
+
+  position: absolute;
+  top: 185%;
+  border-radius: 6px;
 }
 
-/* Навбар ссылки */
+.navbar ul li a:hover {
+  border: 3px solid rgba(64, 194, 245, 0.795);
+  color: rgba(0, 183, 255, 0.795);
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar ul li a{
+  padding: 10px;
+  color: #ffffff;
+  border-radius: 6px;
+  background-color:  rgb(64, 194, 245);
+  border: 3px solid rgba(255, 255, 255, 0.459);
+  font-size: 16px;
+}
+
+.navbar li:hover ul { display: block;  }
+.navbar, .navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 .navbar a {
   float: left;
   font-family: "Noto Sans JP", sans-serif;
   text-align: center;
   padding: 16px;
-  color: white;
+  display: block;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
   text-decoration: none;
   font-size: 17px;
 }
 
 /* Ссылки навбар при наведении мыши */
 .navbar a:hover {
-  background-color: rgba(255, 255, 255, 0.37);
+  background-color: rgba(233, 233, 233, 0.37);
   border-width: 5px 0;
   border-radius: 6px;
 }
+
+.navbar {
+  height: 30px;
+  padding-left: 25px;
+  min-width: 470px;
+  width: 62%;
+  background-color: rgba(85, 85, 85, 0);
+  float: right;
+  margin-right: 1%;
+}
+.navbar li {
+  float: left;
+  position: relative;
+  height: 100%;
+}
+.navbar ul li { float: none; }
+
+.navbar ul li:hover { background-color: #666;  }
 
 /* Текущая / активная навигационная ссылка */
 .active {
@@ -37,8 +79,6 @@ body {
   border-width: 5px 0;
   border-radius: 6px;
 }
-
-/* Добавить адаптивность - автоматически отображает панель навигации вертикально, а не горизонтально на экранах менее 500 пикселей */
 @media screen and (max-width: 500px) {
   .navbar a {
     float: none;
@@ -52,27 +92,21 @@ body {
   font-weight: bold;
   text-align: left;
   overflow: hidden;
+  margin-left: -22%;
 }
 
 .description {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 20px;
   color: white;
-  overflow: hidden;
   float: left; /* Обтекание справа */
   width: 55%;
-  text-align: right;
-  margin-top: 2%;
-  position: relative;
+  margin-top: 4%;
+  margin-left: 8%;
 }
 .login {
   font-weight: lighter;
   color: rgba(131, 125, 125, 0.699);
-}
-
-.edit {
-  font-size: 40px;
-  display: block;
 }
 
 .open-ram {
@@ -157,26 +191,6 @@ body {
   background: linear-gradient(#00d8f5, #009bf5) #00c4f5;
 }
 
-.question-kkal{
-  width:75%;
-  margin-left: 12.5%;
-}
-
-.question-kkal td{
-  font-size: 20px;
-  font-family: "Noto Sans JP", sans-serif;
-}
-
-.question{
-  font-size: 20px;
-  font-family: "Noto Sans JP", sans-serif;
-  color: #00a7f5;
-}
-
-input[type="radio"]{
-  font-family: "Noto Sans JP", sans-serif;
-}
-
 
 input[type="file"]{
   width: 0.1px;
@@ -250,7 +264,7 @@ table.ram-form {
 .logo-login {
   height: 115px;
   border-radius: 50%;
-
+  margin-left: -19.7%;
   border: 5px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -340,23 +354,6 @@ textarea {
   padding: 2px;
 }
 
-.like {
-  cursor: pointer;
-  font-size: 15px;
-}
-.like .red {
-  display: none;
-}
-.like .red.visible {
-  display: flex;
-}
-.white::before {
-  display: flex;
-  content: "\1F90D";
-}
-.white.invisible::before {
-  content: "\2764";
-}
 
 .open-comment {
   height: 20px;

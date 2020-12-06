@@ -298,44 +298,10 @@ textarea {
   padding: 2px;
 }
 
-.like {
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.white::before {
-  display: flex;
-  content: "\1F90D";
-}
-.white.invisible::before {
-  content: "\2764";
-}
 
 .open-comment {
   height: 20px;
 }
-
-
-.question-kkal{
-  width:75%;
-  margin-left: 12.5%;
-}
-
-.question-kkal td{
-  font-size: 20px;
-  font-family: "Noto Sans JP", sans-serif;
-}
-
-.question{
-  font-size: 20px;
-  font-family: "Noto Sans JP", sans-serif;
-  color: #00a7f5;
-}
-
-input[type="radio"]{
-  font-family: "Noto Sans JP", sans-serif;
-}
-
 
 input[type="file"]{
   width: 0.1px;

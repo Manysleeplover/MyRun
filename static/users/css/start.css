@@ -31,10 +31,10 @@ a.entry {
     border-radius: 6px;
     background: linear-gradient(#0fbef3, #16c4e3) #16a2e3;
     transition: 0.2s;
-  }
+  } 
   a.entry:hover { background: linear-gradient(#00bcf5, #009bf5) #00a7f5; }
   a.entry:active { background: linear-gradient(#00d8f5, #009bf5) #00c4f5; }
-
+  
   a.check-in {
     font-family: "Noto Sans JP", sans-serif;
     margin-left: 42.2%;
@@ -51,6 +51,6 @@ a.entry {
     border-radius: 6px;
     background: linear-gradient(#0fbef3, #16c4e3) #16a2e3;
     transition: 0.2s;
-  }
+  } 
   a.check-in:hover { background: linear-gradient(#00bcf5, #009bf5) #00a7f5; }
   a.check-in:active { background: linear-gradient(#00d8f5, #009bf5) #00c4f5; }

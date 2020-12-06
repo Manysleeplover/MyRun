@@ -14,13 +14,17 @@
     <script src="{% static 'users/css/register.js' %}" defer></script>
   </head>
   <body>
-  <div class="navbar">
-  <a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a>
-  <a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a>
-  <a href="/friends"><i class="fa fa-fw fa-users"></i> Подписки</a>
-  <a href="/settings"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
-  <a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a>
-</div>
+    <ul class="navbar">
+            <li><a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li> 
+            <li><a href="/news" ><i class="fa fa-fw fa-comment"></i> Новости</a></li>
+            <li><a href="/friends"><i class="fa fa-fw fa-users"></i> Подписки</a></li>
+                <li><a class="active"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
+            <ul>
+                <li><a href="edit.html">Изменить профиль</a></li>
+                <li><a href="changePassword.html">Изменить пароль</a></li> 
+            </ul> </li>
+        <li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a></li>
+        </ul>
   <h1>Изменить ваш аккаунт</h1>
  <p>Вы можете изменить ваш аккаунт, используя следующие формы:</p>
  <form action="." method="post" enctype="multipart/form-data">

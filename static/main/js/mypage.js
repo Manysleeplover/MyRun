@@ -2,7 +2,6 @@ const openForm = document.querySelector('.ram');
 const clickedForm = document.querySelector('.open-ram-click')
 const clickedCross = document.querySelector('.close');
 const appElem = document.querySelector('.app');
-const appFormElem =  document.querySelector('.app-form');
 const clickedCom = document.querySelector('#open-comment');
 const openCom = document.querySelector('.comment-bar');
 let comBool = false;
@@ -16,14 +15,14 @@ const init = () => {
     openForm.classList.add('visible');
     clickedForm.style.display="none";
     appElem.classList.add('up');
-    appFormElem.classList.add('up');
+
   });
   clickedCross.addEventListener('click', event => {
     event.preventDefault();
     openForm.classList.remove('visible');
     clickedForm.style.display="block";
     appElem.classList.remove('up');
-    appFormElem.classList.remove('up');
+
   });
 
 
@@ -42,6 +41,7 @@ const init = () => {
   });
   
 };
+
 var inputs = document.querySelectorAll('.inputfile');
 Array.prototype.forEach.call(inputs, function(input)
   {

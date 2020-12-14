@@ -80,14 +80,6 @@ body {
   border-width: 5px 0;
   border-radius: 6px;
 }
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
-}
-
-
 
 .name {
   font-family: "Noto Sans JP", sans-serif;
@@ -367,4 +359,76 @@ input[type="file"]+label:active {
   font-family: "Noto Sans JP", sans-serif;
   color: hsl(199, 98%, 60%);
   font-weight: bold;
+}
+
+@media screen and (max-width: 1160px){
+  .navbar a {
+    float: none;
+    display: block;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Noto Sans JP", sans-serif; 
+    padding: 14px;
+  }
+  .open-ram {
+    margin-top:1.8%;
+  }
+  .ram{
+    margin-left:19.5%;
+    margin-top: 1.7%;
+  }
+  .app {
+    margin-top: 1.7%;
+  }
+}
+
+
+@media screen and (max-width: 1122px) {
+  .open-ram {
+    margin-top:3%;
+  }
+  .ram{
+    margin-left:19.5%;
+    margin-top: 2.9%;
+  }
+  .app {
+    margin-top: 2.9%;
+  }
+  .navbar a {
+    float: none;
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Noto Sans JP", sans-serif; 
+    padding: 10px;
+  }
+  .description {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 20px;
+    color: white;
+    width: 55%;
+    margin-left: 8%;
+  }
+
+  .logo-login {
+    height: 90px;
+    border-radius: 50%;
+    margin-left: -19.7%;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  
+}
+
+@media screen and (max-width: 1040px) {
+  .open-ram {
+    margin-top:1.8%;
+  }
+  .ram{
+    margin-top: 1.7%;
+    margin-left:19.5% ;
+  }
+  .app {
+    margin-top: 1.7%;
+  }
 }

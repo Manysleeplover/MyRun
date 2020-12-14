@@ -1,14 +1,17 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="{% static 'users/css/start.css' %}" />
+    <link rel="stylesheet" href="start.css" />
     <meta charset="utf-8" />
     <title>Авторизация</title>
   </head>
   <body>
-    <h1>MyRun</h1>
-    <a href="{% url 'login' %}" class= "entry">Войти</a>
-    <a href="{% url 'register' %}" class= "check-in">Регистрация</a>
+    <div class="circle">
+      <img src="myrun.png" alt="myrun">
+      <h1>MyRun</h1>
+      <a href="entry.html" class= "entry">Войти</a>
+      <br>
+      <a href="checkin.html" class= "check-in">Регистрация</a>
+    </div>
   </body>
 </html>

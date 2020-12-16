@@ -27,7 +27,7 @@
         </ul>
   <h1>Изменить ваш аккаунт</h1>
  <p>Вы можете изменить ваш аккаунт, используя следующие формы:</p>
- <form action="." method="post" enctype="multipart/form-data">
+ <form id="form" action="." method="post" enctype="multipart/form-data">
  {{ user_form.as_p }}
  {{ profile_form.as_p }}
  {% csrf_token %}

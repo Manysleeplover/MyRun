@@ -8,7 +8,6 @@ body {
 
 .navbar ul {
   display: none;
-
   position: absolute;
   top: 185%;
   border-radius: 6px;
@@ -59,10 +58,10 @@ body {
   height: 30px;
   padding-left: 25px;
   min-width: 470px;
-  width: 62%;
+  width: 63%;
   background-color: rgba(85, 85, 85, 0);
   float: right;
-  margin-right: 1%;
+  margin-right: 9%;
 }
 .navbar li {
   float: left;
@@ -105,15 +104,31 @@ body {
 }
 
 .open-ram {
-  margin-left: -25%;
+  margin-left: -20%;
   position: fixed;
   height: 100px;
   margin-top: 11%;
 }
 
+.open-ram-click:hover::after{
+  content:"Добавить новый твит";
+  position: absolute;
+  background:hsla(199, 98%, 60%, 0.582);
+  height: 25px;
+  width: 200px;
+  border-radius: 7px;
+  margin-left: -23.5%;
+  margin-top: 19%;
+  text-align: center;
+  letter-spacing:0.5px;
+  font-family: "Noto Sans JP", sans-serif;
+  color: white;
+  font-size: 14px;
+}
+
 .nameing {
   float: left; /* Обтекание справа */
-  width: 30%;
+  width: 25%;
 }
 
 .close {
@@ -128,14 +143,14 @@ body {
 }
 .close:before {
   content: "+";
+  padding: 8px;
   color: hsl(199, 98%, 60%);
   position: absolute;
   z-index: 2;
   transform: rotate(45deg);
   font-size: 50px;
   line-height: 1;
-  top: -5px;
-  left: 6px;
+  top: -13px;
   transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
 }
 .close:hover:after {
@@ -147,10 +162,10 @@ body {
 }
 
 .ram {
-  margin-left: 20%;
+  margin-left: 24.5%;
   margin-top: 11%;
   background-color: rgba(232, 244, 247, 0.705);
-  width: 60%;
+  width: 50%;
   height: 40%;
   border: 5px solid rgba(12, 172, 247, 0.089);
   border-radius: 10px;
@@ -164,7 +179,7 @@ body {
 #sumbit {
   font-family: "Noto Sans JP", sans-serif;
   cursor: pointer;
-  margin-left: 10%;
+  margin-left: 40%;
   margin-top: 0.5%;
   font-size: 20px;
   display: inline-block;
@@ -186,58 +201,6 @@ body {
   background: linear-gradient(#00d8f5, #009bf5) #00c4f5;
 }
 
-
-input[type="file"]{
-  width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-
-.inputfile + label svg {
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-  fill: currentColor;
-  margin-top: -0.25em;
-  margin-right: 0.25em;
-}
-
-label span {
-  color: white;
-  font-family: "Noto Sans JP", sans-serif;
-}
-
-input[type="file"]+label{
-  font-family: "Noto Sans JP", sans-serif;
-  cursor: pointer;
-  margin-left: 15%;
-  margin-top: 0.5%;
-  font-size: 20px;
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  padding: 0.2em 1em;
-  outline: none;
-  border-width: 2px 0;
-  border-style: solid none;
-  border-color: hsl(199, 98%, 60%) #000 hsl(189, 95%, 43%);
-  border-radius: 6px;
-  background: linear-gradient(#0fbef3, #16c4e3) #16a2e3;
-  transition: 0.2s;
-}
-input[type="file"]+label:hover {
-  background: linear-gradient(#00bcf5, #009bf5) #00a7f5;
-}
-input[type="file"]+label:active {
-  background: linear-gradient(#00d8f5, #009bf5) #00c4f5;
-}
-
-
-
-
 input[type="number"],
 input[type="text"] {
   font-size: 18px;
@@ -258,6 +221,7 @@ table.ram-form {
 
 .logo-login {
   height: 115px;
+  width: 115px;
   border-radius: 50%;
   margin-left: -19.7%;
   border: 5px solid rgba(255, 255, 255, 0.2);
@@ -308,50 +272,16 @@ table.ram-form {
 
 .logo {
   height: 75px;
+  width: 75px;
   border-radius: 50%;
   padding: 5px;
-}
 
-.characters-remaining {
-  font-size: 12px;
 }
 
 a {
   text-decoration: none;
   color: black;
   font-weight: bold;
-}
-
-span {
-  color: grey;
-}
-
-.comment-bar {
-  background-color: #f5f8fa;
-  padding: 10px;
-  border-top: 1px solid #e6ecf0;
-  border-radius: 2%;
-  font-family: "Noto Sans JP", sans-serif;
-  display: none;
-}
-.comment-bar.visible {
-  display: block;
-}
-
-textarea {
-  width: 100%;
-  border: 1px solid #1da1f2;
-  font-family: "Noto Sans JP", sans-serif;
-  border-radius: 2px;
-  outline: none;
-  resize: none;
-  height: 40px;
-  padding: 2px;
-}
-
-
-.open-comment {
-  height: 20px;
 }
 
 .workout-index {
@@ -361,7 +291,7 @@ textarea {
   padding: 10px;
   border: 2px solid #f1f2f3cb;
   border-radius: 10px;
-  margin-left: -26.5%;
+  margin-left: -28.5%;
 }
 
 .tweet-index {

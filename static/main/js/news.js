@@ -1,39 +1,55 @@
+
 const openForm = document.querySelector('.ram');
-const clickedForm = document.querySelector('.open-ram-click')
+const clickedForm = document.querySelector('.open-ram-click');
+const svgForm = document.querySelector('.open-ram');
 const clickedCross = document.querySelector('.close');
+const toggleSort = document.querySelector('.sort');
+const toggleForm = document.querySelector('.choice');
 const toggleLike = document.querySelector('.like');
 const appElem = document.querySelector('.app');
-const clickedCom = document.querySelector('#open-comment');
-const openCom = document.querySelector('.comment-bar');
-let comBool = false;
+
 
 
 const init = () => {
 
   clickedForm.addEventListener('click', event => {
     event.preventDefault();
+    window.scrollTo(0, 0);
     openForm.classList.add('visible');
     clickedForm.style.display="none";
+    toggleSort.style.display="none";
+    if (toggleForm.classList.contains('active')){
+      toggleForm.classList.remove('active');
+    }
+    
     appElem.classList.add('up');
   });
   clickedCross.addEventListener('click', event => {
     event.preventDefault();
     openForm.classList.remove('visible');
     clickedForm.style.display="block";
+    toggleSort.style.display="block";
     appElem.classList.remove('up');
   });
 
-  appElem.addEventListener('click', event =>{
-    if (event.target.matches('.open-comment') && comBool===false){
-    event.preventDefault();
-    comBool=true;
-    openCom.classList.add('visible');
-    } else if (event.target.matches('.open-comment') && comBool===true) {
-      event.preventDefault();
-      comBool=false;
-      openCom.classList.remove('visible');
-    }
+  toggleSort.addEventListener('click', function(){
+    toggleForm.classList.toggle('active');
   })
-};
 
+  window.addEventListener('scroll', function() {
+    let scroll = pageYOffset;
+    if (scroll>110){
+      toggleSort.style.cssText=`margin-top:-10%;`;
+      svgForm.style.cssText=`margin-top:-10.8%;`;
+      toggleForm.style.cssText=`margin-top:-4.5%;`;
+    }
+    if (scroll<150){
+      toggleSort.style.cssText=`margin-top:2%;`;
+      svgForm.style.cssText=`margin-top:1.8%;`;
+      toggleForm.style.cssText=`margin-top:7.5%;`;
+    }
+  });
+
+};
+  
 init();

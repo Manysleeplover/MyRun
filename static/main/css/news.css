@@ -106,7 +106,7 @@ body {
   width: 115px;
   margin-top: 4.5%;
   margin-left: -19.7%;
-  border-radius: 50%;
+  border-radius: 100px;
   border: 5px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -393,7 +393,7 @@ label{
 .logo {
   height: 75px;
   width: 75px;
-  border-radius: 50%;
+  border-radius: 50px;
   padding: 5px;
 }
 

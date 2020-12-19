@@ -4,7 +4,6 @@
 <html>
     <head>
         <link rel="icon" href="{% static 'main/css/favicon.ico' %}" type="image/x-icon">
-        <script src="static/main/js/friends.js" defer></script>
         <link rel="stylesheet" href="static/main/css/friends.css" />
         <meta charset="utf-8" />
         <title>Подписки</title>
@@ -17,6 +16,7 @@
             <li><a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li>
             <li><a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a></li>
             <li><a class="active" ><i class="fa fa-fw fa-users"></i> Подписки</a></li>
+            <li><a href="/search"><i class="fa fa-search"></i> Поиск</a></li>
                 <li><a><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
             <ul>
           <li><a href="{% url 'edit' %}">Изменить профиль</a></li>
@@ -39,36 +39,34 @@
             <input type="text" placeholder="Ищите подписки...">
             <button type="submit"></button>
         </form>
-        <div id="app" class="app">
-        {% for user in users %}
+       
 
-
+            <div id="app" class="app">
             <div class="status">
-                <div class="tweet-content">
-                    <a href="{{ user.get_absolute_url }}">{% if user.profile.photo %}
-
-                    <img src="{{ user.profile.photo.url }}" class="logo-login" alt="logo">
-                        {% else %}
-                        <th><img src="{% static 'main/css/runner.png' %}" class="logo-login" alt="logo"></th>
-                        {% endif %}
-                    </a>
-                    <div class="tweet">
-                        <a href="{{ user.get_absolute_url }}"><span>@{{user.username}}</span></a>
-                        <p class="description">
-                            {% if user.profile.profile_description %}
-                            {{ user.profile.profile_description }}
-                            {% else %}
-                            {% endif %}
-                            {% if user.profile.city %}
-                            <p>{{ user.profile.city }},
-                            {{ user.profile.country }}</p>
-                            {% else %}
-                            {% endif %}
-                        </p>
-                    </div>
+              <div class="tweet-content">
+                <img src="runner.png" class="logo" alt="logo">
+                <div class="tweet">
+                  <a id="name" >Namei</a>
+                  <span>@login</span>
+                  <p class="tweet-text">
+                  workout
+                    <table class="workout-index">
+                      <tr class="tweet-index">
+                        <td>Темп</td>
+                        <td>Время</td>
+                        <td>Расстояние</td>
+                      </tr>
+                      <tr>
+                        <td>5:00 мин/км</td>
+                        <td>30мин</td>
+                        <td>6км</td>
+                      </tr>
+                    </table>
+                    Количество сожженых калорий: 333 ккал
+                  </p>
                 </div>
+              </div>
             </div>
-        {% endfor %}
-        </div>
+          </div>
     </body>
 </html>

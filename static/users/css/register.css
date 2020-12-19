@@ -23,7 +23,7 @@ body {
     width: 330px;
     height: 380px;
     display: none;
-    background: rgba(255, 255, 255, 0.2);   
+    background: rgba(255, 255, 255, 0.2);
 }
 .condition-form.visible{
   display:inline-block;

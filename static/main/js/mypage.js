@@ -2,6 +2,9 @@ const openForm = document.querySelector('.ram');
 const clickedForm = document.querySelector('.open-ram-click')
 const clickedCross = document.querySelector('.close');
 const appElem = document.querySelector('.app');
+const clickedCom = document.querySelector('#open-comment');
+const openCom = document.querySelector('.comment-bar');
+let comBool = false;
 
 
 const init = () => {
@@ -9,7 +12,6 @@ const init = () => {
 
   clickedForm.addEventListener('click', event => {
     event.preventDefault();
-    window.scrollTo(0, 0);
     openForm.classList.add('visible');
     clickedForm.style.display="none";
     appElem.classList.add('up');
@@ -24,8 +26,20 @@ const init = () => {
   });
 
 
-  
-  document.title = document.querySelector('.name').innerText;
+  appElem.addEventListener('click', event =>{
+    if (event.target.matches('.open-comment') && comBool===false){
+    event.preventDefault();
+    console.log('blin');
+    comBool=true;
+    openCom.classList.add('visible');
+    } else if (event.target.matches('.open-comment') && comBool===true) {
+      event.preventDefault();
+      console.log('be');
+      comBool=false;
+      openCom.classList.remove('visible');
+    }
+  });
+
 };
 
 var inputs = document.querySelectorAll('.inputfile');

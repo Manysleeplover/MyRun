@@ -1,7 +1,10 @@
 {% load static %}
+{% load thumbnail %}
+
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="{% static 'main/css/favicon.ico' %}" type="image/x-icon">
     <script src="static/main/js/mypage.js" defer></script>
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <link rel="stylesheet" href="static/main/css/mypage.css"/>
@@ -13,24 +16,38 @@
 
     {% if request.user.is_authenticated %}
     <ul class="navbar">
-      <li><a class="active" ><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li> 
+      <li><a class="active" ><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li>
       <li><a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a></li>
       <li><a href="/friends"><i class="fa fa-fw fa-users"></i> Подписки</a></li>
           <li><a><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
       <ul>
-          <li><a href="edit.html">Изменить профиль</a></li>
-          <li><a href="changePassword.html">Изменить пароль</a></li>
+          <li><a href="{% url 'edit' %}">Изменить профиль</a></li>
+          <li><a href="{% url 'password_change' %}">Изменить пароль</a></li>
       </ul> </li>
   <li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a></li>
   </ul>
 <p></p>
 <table class="nameing">
   <tr>
-    <th><img src="static/main/css/runner.png" class="logo-login" alt="logo"></th>
+
+    <th>{% if user.profile.photo %}
+
+                    <img src="{{ user.profile.photo.url }}" class="logo-login" alt="logo">
+                        {% else %}
+                      <img src="{% static 'main/css/runner.png' %}" class="logo-login" alt="logo">
+                        {% endif %}</th>
+    <td></td>
     <td ><div class='name'>{{ request.user.username }}<div class='login'>@{{ request.user.id }}</div></div></td>
   </tr>
 </table>
-<div class="description">Описание профиля и данные(возраст,страна и тд.)</div>
+<div class="description">  {% if user.profile.profile_description %}
+  {{ user.profile.profile_description }}
+  {% else %}
+  {% endif %}
+  <br>
+  {{ user.profile.city }},{{ user.profile.country }}
+</p>
+</div>
 {% endif %}
 <br>
 
@@ -41,13 +58,12 @@
     {% csrf_token %}
   <table class="ram-form">
     <tr>
-      <th>Темп</th>
+      <th></th>
       <th>Время</th>
       <th>Расстояние</th>
     </tr>
     <tr>
       <th>
-        {{ form.pace }}мин/км
       </th>
       <th>
         {{ form.time }}мин
@@ -59,8 +75,7 @@
     </tr>
   </table>
     {{ form.text_train }}
-    <input type="file" id="file" class="inputfile" name="photo" data-multiple-caption="{count} файла(ов) выбрано" multiple=2 accept="image/jpeg,image/jpg">
-    <label  for = "file"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Выберите фото&hellip;</span></label>
+
   <input type="submit" id="sumbit" />
 </form>
 </div>
@@ -70,15 +85,31 @@
   viewBox="0 0 172 172"
   style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M86,161.25c-41.4907,0 -75.25,-33.7593 -75.25,-75.25c0,-41.4907 33.7593,-75.25 75.25,-75.25c41.4907,0 75.25,33.7593 75.25,75.25c0,41.4907 -33.7593,75.25 -75.25,75.25z" fill="#dff0fe"></path><path d="M86,12.9c40.3082,0 73.1,32.7918 73.1,73.1c0,40.3082 -32.7918,73.1 -73.1,73.1c-40.3082,0 -73.1,-32.7918 -73.1,-73.1c0,-40.3082 32.7918,-73.1 73.1,-73.1M86,8.6c-42.7463,0 -77.4,34.6537 -77.4,77.4c0,42.7463 34.6537,77.4 77.4,77.4c42.7463,0 77.4,-34.6537 77.4,-77.4c0,-42.7463 -34.6537,-77.4 -77.4,-77.4z" fill="#44b4f5"></path><path d="M43,81.7h86c2.3736,0 4.3,1.9264 4.3,4.3v0c0,2.3736 -1.9264,4.3 -4.3,4.3h-86c-2.3736,0 -4.3,-1.9264 -4.3,-4.3v0c0,-2.3736 1.9264,-4.3 4.3,-4.3z" fill="#49c1f1"></path><path d="M90.3,43v86c0,2.3736 -1.9264,4.3 -4.3,4.3v0c-2.3736,0 -4.3,-1.9264 -4.3,-4.3v-86c0,-2.3736 1.9264,-4.3 4.3,-4.3v0c2.3736,0 4.3,1.9264 4.3,4.3z" fill="#49c1f1"></path></g><path d="" fill="none"></path></g></g></svg></a>
     <div id="app" class="app">
+
+
+
+
   {% for el in post %}
   <div class="status">
     <div class="tweet-content">
-      <img src="static/main/css/runner.png" class="logo" alt="logo">
+                    {% if user.profile.photo %}
+                    <img src="{{ user.profile.photo.url }}" class="logo-login" alt="logo">
+                        {% else %}
+                      <img src="{% static 'main/css/runner.png' %}" class="logo-login" alt="logo">
+                        {% endif %}
       <div class="tweet">
-        <a >Name</a>
+        <a >{{ el.author }}</a>
         <span>@{{ el.id }}</span>
         <p class="tweet-text">
         {{ el.text_train }}
+          <br>
+        {% if el.photo %}
+                    {% thumbnail el.photo "200x200" crop="100%" as im %}
+                    <img src="{{ im.url }}">
+                    {% endthumbnail %}
+                        {% else %}
+
+                        {% endif %}
           <table class="workout-index">
             <tr class="tweet-index">
               <td>Темп</td>
@@ -91,19 +122,31 @@
               <td>{{ el.distance }}км</td>
             </tr>
           </table>
-          Количество сожженых калорий: 333 ккал
+          Количество соженных калорий : {{ el.calories }}
         </p>
         <div class="reactions">
           <span > <a href="#" id="open-comment" > <img class="open-comment"  src="https://img.icons8.com/carbon-copy/100/000000/comments.png"/></a></span>
         </div>
       </div>
     </div>
-    <div class="comment-bar" id="comment-bar">
-      <textarea placeholder="tweet your reply"></textarea>
-      <span class="characters-remaining">
-        280 characters remaining
-      </span>
-    </div>
+<!--     {% with total_likes=post.users_like.count %}-->
+<!--           <div class="image-info">-->
+<!--           <div>-->
+<!--           <span class="count">{{ total_likes }} like{{ total_likes|pluralize }}</span>-->
+<!--           </div>-->
+<!--           {{ image.description|linebreaks }}-->
+<!--           </div>-->
+<!--           <div class="image-likes">-->
+<!--           {% for user in post.users_like.all %}-->
+<!--           <div>-->
+<!--           <img src="{{ user.profile.photo.url }}">-->
+<!--           <p>{{ user.username }}</p>-->
+<!--           </div>-->
+<!--           {% empty %}-->
+<!--           {% endfor %}-->
+<!--           </div>-->
+<!-- {% endwith %}-->
+
   </div>
   {% endfor %}
 </div>

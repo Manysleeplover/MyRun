@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+      <link rel="icon" href="{% static 'main/css/favicon.ico' %}" type="image/x-icon">
     <meta charset="UTF-8" />
     <title>Авторизация</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,11 +19,11 @@
         <label class="tab" id="tab-1">Авторизация</label>
 
 
-       <form method="post" action="{% url 'login' %}" class="tab-form">
+       <form method="post" action="{% url 'login' %}" class="tab-form active">
           {% csrf_token %}
           <div class="box-input">
             <p>{{ form.username }}
-            <label>Введите логин</label></p>
+            <label>Введите Логин </label></p>
           </div>
           <div class="box-input">
             <p>{{ form.password }}
@@ -30,24 +31,8 @@
           </div>
           <input type="hidden" name="next" value="{{ next }}" />
           <input type="submit" class="button" value="Войти"/>
-           <ul class="social">
-            <li>
-              <a href="#"
-                ><div><i class="fa fa-twitter"></i></div
-              ></a>
-            </li>
-            <li>
-              <a href="#"
-                ><div><i class="fa fa-instagram"></i></div
-              ></a>
-            </li>
-            <li>
-              <a href="#"
-                ><div><i class="fa fa-vk"></i></div
-              ></a>
-            </li>
-          </ul>
-          <p><a href="{% url 'password_reset' %}">Я забыл свой пароль</a></p>
+
+          <p><a class="not-entry" href="{% url 'password_reset' %}">Я забыл свой пароль</a></p>
            <p></p>
           <a  class="not-entry" href="{% url 'register' %}">Еще не зарегистрированы?</a>
         </form>

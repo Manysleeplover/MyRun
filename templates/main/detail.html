@@ -1,0 +1,157 @@
+{% load thumbnail %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="{% static 'main/css/favicon.ico' %}" type="image/x-icon">
+    <script src="{% static 'main/js/detail.js' %}" defer></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <link rel="stylesheet" href="{% static 'main/css/detail.css' %}"/>
+    <meta charset="utf-8" />
+    <title>{{ user.username }}</title>
+  </head>
+  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% if request.user.is_authenticated %}
+    <ul class="navbar">
+      <li><a href="/mypage" ><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li>
+      <li><a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a></li>
+      <li><a href="/friends"><i class="fa fa-fw fa-users"></i> Подписки</a></li>
+          <li><a><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
+      <ul>
+          <li><a href="{% url 'edit' %}">Изменить профиль</a></li>
+          <li><a href="{% url 'password_change' %}">Изменить пароль</a></li>
+      </ul> </li>
+  <li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a></li>
+  <li><a {% with total_followers=user.followers.count %} <span class="count">
+      <span class="total">{{ total_followers }}</span>
+      follower{{ total_followers|pluralize }}</span>
+      <a href="#" data-id="{{ user.id }}"
+         data-action="{% if request.user in user.followers.all %}un{% endif %}follow"
+         class="follow button">
+          {% if request.user not in user.followers.all %}
+          Follow
+          {% else %}
+          Unfollow
+          {% endif %}
+      </a>
+      {% endwith %}
+         </a></a></li>
+  </ul>
+<p></p>
+<table class="nameing">
+  <tr>
+    <th>{% if user.profile.photo %}
+
+                    <img src="{{ user.profile.photo.url }}" class="logo-login" alt="logo">
+                        {% else %}
+                      <img src="{% static 'main/css/runner.png' %}" class="logo-login" alt="logo">
+                        {% endif %}</th>
+    <td ><div class='name'>{{ user.username }}<div class='login'>@{{ user.id }}</div></div></td>
+  </tr>
+</table>
+<p class="description">
+  {% if user.profile.profile_description %}
+  {{ user.profile.profile_description }}
+  {% else %}
+  {% endif %}
+  <br>
+  {{ user.profile.city }},{{ user.profile.country }}
+</p>
+
+
+{% endif %}
+<br>
+
+
+
+
+
+
+
+  <div id="app" class="app">
+  {% for post in posts %}
+      {% if post %}
+  <div class="status">
+    <div class="tweet-content">
+      <img src="{% static 'main/css/runner.png' %}" class="logo" alt="logo">
+      <div class="tweet">
+        <a >{{ post.author }}</a>
+        <span>@{{ post.id }}</span>
+        <p class="tweet-text">
+        {{ post.text_train }}
+          <br>
+        {% if post.photo %}
+                    {% thumbnail post.photo "200x200" crop="100%" as im %}
+                    <img src="{{ im.url }}">
+                    {% endthumbnail %}
+                        {% else %}
+
+                        {% endif %}
+          <table class="workout-index">
+            <tr class="tweet-index">
+              <td>Темп</td>
+              <td>Время</td>
+              <td>Расстояние</td>
+            </tr>
+            <tr>
+              <td>{{ post.pace }} мин/км</td>
+              <td>{{ post.time }}мин</td>
+              <td>{{ post.distance }}км</td>
+            </tr>
+          </table>
+          Количество сожженых калорий: 333 ккал
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+      {% else %}
+      {% endif %}
+      {% endfor %}
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script> var csrftoken = Cookies.get('csrftoken');
+ functioncsrfSafeMethod(method) {
+ // Для этих методов токен не будет подставляться в заголовок.
+ return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+ }
+ $.ajaxSetup({
+ beforeSend: function(xhr, settings) {
+ if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+ xhr.setRequestHeader("X-CSRFToken", csrftoken);
+ }
+ }
+ });
+   $(document).ready(function(){
+     $('a.follow').click(function(e){
+ e.preventDefault();
+ $.post('{% url "user_follow" %}',
+ {
+ id: $(this).data('id'),
+ action: $(this).data('action')
+ },
+ function(data){
+ if (data['status'] == 'ok') {
+ var previous_action = $('a.follow').data('action');
+ // Изменяем действие на противоположное.
+ $('a.follow').data('action',
+ previous_action == 'follow' ? 'unfollow' : 'follow');
+ // Изменяем текст ссылки.
+ $('a.follow').text(previous_action == 'follow' ? 'Unfollow' : 'Follow');
+ // Обновляем количество подписчиков.
+ var previous_followers = parseInt(
+ $('span.count .total').text());
+ $('span.count .total').text(
+ previous_action == 'follow' ? previous_followers + 1 :
+ previous_followers – 1
+ );
+ }
+ });
+ });
+ });
+ </script>
+  </body>
+</html>

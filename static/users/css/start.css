@@ -7,7 +7,7 @@ body{
 }
 
 .circle {
-  
+
   background-color: white;
   border-radius: 200px;
   width: 400px;
@@ -24,7 +24,7 @@ img{
   padding: 5% 0 0 33%;
 }
 
-h1 { 
+h1 {
   color:#04b1e6;
     font-size: 50pt;
     padding: 0 0 0 13%;
@@ -50,10 +50,10 @@ a.entry {
     border-radius: 6px;
     background: linear-gradient(#0fbef3, #16c4e3) #16a2e3;
     transition: 0.2s;
-  } 
+  }
   a.entry:hover { background: linear-gradient(#00bcf5, #009bf5) #00a7f5; }
   a.entry:active { background: linear-gradient(#00d8f5, #009bf5) #00c4f5; }
-  
+
   a.check-in {
     font-family: "Noto Sans JP", sans-serif;
     font-size: 20px;
@@ -71,10 +71,10 @@ a.entry {
     border-radius: 6px;
     background: linear-gradient(#0fbef3, #16c4e3) #16a2e3;
     transition: 0.2s;
-  } 
+  }
   a.check-in:hover { background: linear-gradient(#00bcf5, #009bf5) #00a7f5; }
   a.check-in:active { background: linear-gradient(#00d8f5, #009bf5) #00c4f5; }
-  
+
 
   @media screen and (max-width: 1150px){
     a.check-in {

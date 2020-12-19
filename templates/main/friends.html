@@ -1,7 +1,9 @@
 {% load static %}
+{% load thumbnail %}
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="{% static 'main/css/favicon.ico' %}" type="image/x-icon">
         <script src="static/main/js/friends.js" defer></script>
         <link rel="stylesheet" href="static/main/css/friends.css" />
         <meta charset="utf-8" />
@@ -12,20 +14,25 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <ul class="navbar">
-            <li><a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li> 
+            <li><a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li>
             <li><a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a></li>
             <li><a class="active" ><i class="fa fa-fw fa-users"></i> Подписки</a></li>
                 <li><a><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
             <ul>
-                <li><a href="edit.html">Изменить профиль</a></li>
-                <li><a href="changePassword.html">Изменить пароль</a></li>
+          <li><a href="{% url 'edit' %}">Изменить профиль</a></li>
+          <li><a href="{% url 'password_change' %}">Изменить пароль</a></li>
             </ul> </li>
         <li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a></li>
         </ul>
         <table class="nameing">
             <tr>
-            <th><img src="static/main/css/runner.png" class="logo-login" alt="logo"></th>
-            <td ><div class='name'>Имя<div class='login'>@Логин</div></div></td>
+            <th>{% if user.profile.photo %}
+
+                    <img src="{{ user.profile.photo.url }}" class="logo-login" alt="logo">
+                        {% else %}
+                      <img src="{% static 'main/css/runner.png' %}" class="logo-login" alt="logo">
+                        {% endif %}</th>
+            <td ><div class='name'>{{ request.user.username }}<div class='login'>@{{ request.user.id }}</div></div></td>
             </tr>
         </table>
         <form>
@@ -33,18 +40,35 @@
             <button type="submit"></button>
         </form>
         <div id="app" class="app">
+        {% for user in users %}
+
+
             <div class="status">
                 <div class="tweet-content">
-                    <a href="#"><img src="static/main/css/runner.png" class="logo" alt="logo"></a>
+                    <a href="{{ user.get_absolute_url }}">{% if user.profile.photo %}
+
+                    <img src="{{ user.profile.photo.url }}" class="logo-login" alt="logo">
+                        {% else %}
+                        <th><img src="{% static 'main/css/runner.png' %}" class="logo-login" alt="logo"></th>
+                        {% endif %}
+                    </a>
                     <div class="tweet">
-                        <a href="#">Name</a>
-                        <span>@login</span>
+                        <a href="{{ user.get_absolute_url }}"><span>@{{user.username}}</span></a>
                         <p class="description">
-                            Описание профиля и данные(возраст,страна и тд.)
+                            {% if user.profile.profile_description %}
+                            {{ user.profile.profile_description }}
+                            {% else %}
+                            {% endif %}
+                            {% if user.profile.city %}
+                            <p>{{ user.profile.city }},
+                            {{ user.profile.country }}</p>
+                            {% else %}
+                            {% endif %}
                         </p>
                     </div>
                 </div>
             </div>
+        {% endfor %}
         </div>
     </body>
 </html>

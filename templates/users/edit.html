@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+      <link rel="icon" href="{% static 'main/css/favicon.ico' %}" type="image/x-icon">
     <meta charset="UTF-8" />
     <title>Редактирование аккаунта</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,23 +16,33 @@
   </head>
   <body>
     <ul class="navbar">
-            <li><a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li> 
+            <li><a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li>
             <li><a href="/news" ><i class="fa fa-fw fa-comment"></i> Новости</a></li>
             <li><a href="/friends"><i class="fa fa-fw fa-users"></i> Подписки</a></li>
                 <li><a class="active"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
             <ul>
-                <li><a href="edit.html">Изменить профиль</a></li>
-                <li><a href="changePassword.html">Изменить пароль</a></li> 
+            <li><a href="{% url 'edit' %}">Изменить профиль</a></li>
+            <li><a href="{% url 'password_change' %}">Изменить пароль</a></li>
             </ul> </li>
         <li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a></li>
         </ul>
   <h1>Изменить ваш аккаунт</h1>
  <p>Вы можете изменить ваш аккаунт, используя следующие формы:</p>
- <form id="form" action="." method="post" enctype="multipart/form-data">
+ <form action="." method="post" enctype="multipart/form-data">
  {{ user_form.as_p }}
  {{ profile_form.as_p }}
  {% csrf_token %}
  <p><input type="submit" value="Сохранить изменения"></p>
+     {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">
+        {{ message|safe }}
+        <a href="{% url 'edit' %}" class="close">x</a>
+        </li>
+        {% endfor %}
+        </ul>
+     {% endif %}
  </form>
   </body>
 </html>

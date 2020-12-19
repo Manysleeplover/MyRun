@@ -1,17 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="start.css" />
+    <link rel="icon" href="{% static 'main/css/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'users/css/start.css' %}" />
     <meta charset="utf-8" />
     <title>Авторизация</title>
   </head>
   <body>
     <div class="circle">
-      <img src="myrun.png" alt="myrun">
+      <img src="{% static 'users/css/myrun.png' %}" alt="myrun">
       <h1>MyRun</h1>
-      <a href="entry.html" class= "entry">Войти</a>
+      <a href="{% url 'login' %}" class= "entry">Войти</a>
       <br>
-      <a href="checkin.html" class= "check-in">Регистрация</a>
+      <a href="{% url 'register' %}" class= "check-in">Регистрация</a>
     </div>
   </body>
 </html>

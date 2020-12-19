@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <link rel="icon" href="{% static 'main/css/favicon.ico' %}" type="image/x-icon">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="search.css" />
+    <link rel="stylesheet" href="static/main/css/search.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Поиск</title>
 </head>
@@ -11,16 +12,16 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <ul class="navbar">
-        <li><a href="mypage.html"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li> 
-        <li><a href="news.html"><i class="fa fa-fw fa-comment"></i> Новости</a></li>
-        <li><a href="friends.html" ><i class="fa fa-fw fa-users"></i> Подписки</a></li>
+        <li><a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li> 
+        <li><a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a></li>
+        <li><a href="/friends" ><i class="fa fa-fw fa-users"></i> Подписки</a></li>
         <li><a class="active"><i class="fa fa-search"></i> Поиск</a></li>
             <li><a><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
         <ul>
-            <li><a href="edit.html">Изменить профиль</a></li>
-            <li><a href="changePassword.html">Изменить пароль</a></li>
+            <li><a href="{% url 'edit' %}">Изменить профиль</a></li>
+            <li><a href="{% url 'password_change' %}">Изменить пароль</a></li>
         </ul> </li>
-    <li><a href="#"><i class="fa fa-fw fa-sign-out"></i> Выход</a></li>
+    <li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Выход</a></li>
     </ul>
     <table class="nameing">
         <tr>

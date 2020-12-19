@@ -19,6 +19,7 @@
       <li><a class="active" ><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li>
       <li><a href="/news"><i class="fa fa-fw fa-comment"></i> Новости</a></li>
       <li><a href="/friends"><i class="fa fa-fw fa-users"></i> Подписки</a></li>
+      <li><a href="/search"><i class="fa fa-search"></i> Поиск</a></li>
           <li><a><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
       <ul>
           <li><a href="{% url 'edit' %}">Изменить профиль</a></li>
@@ -124,9 +125,7 @@
           </table>
           Количество соженных калорий : {{ el.calories }}
         </p>
-        <div class="reactions">
-          <span > <a href="#" id="open-comment" > <img class="open-comment"  src="https://img.icons8.com/carbon-copy/100/000000/comments.png"/></a></span>
-        </div>
+
       </div>
     </div>
 <!--     {% with total_likes=post.users_like.count %}-->

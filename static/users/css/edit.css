@@ -10,7 +10,7 @@ body{
     color:white;
   }
   p{
-    color:white;
+    color:black;
   }
   input[type=submit]{
     cursor: pointer;

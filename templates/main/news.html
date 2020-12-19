@@ -18,6 +18,7 @@
       <li><a href="/mypage"><i class="fa fa-fw fa-user-circle"></i> Профиль</a></li>
       <li><a class="active" ><i class="fa fa-fw fa-comment"></i> Новости</a></li>
       <li><a href="/friends"><i class="fa fa-fw fa-users"></i> Подписки</a></li>
+      <li><a href="/search"><i class="fa fa-search"></i> Поиск</a></li>
           <li><a><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Настройки</a>
       <ul>
           <li><a href="{% url 'edit' %}">Изменить профиль</a></li>
@@ -63,6 +64,25 @@
   <input type="submit" id="sumbit" />
 </form>
 </div>
+    <button class="sort">Фильтр</button>
+<form class="choice" action="">
+  <div class="gender">
+    <span class="title">Пол:</span><br>
+    <input type="radio" id="male" checked="true" name="gender">
+    <label for="male" ></label> <label class="var" for="male">Мужской</label> 
+    <input type="radio" id="female" name="gender">
+    <label for="female" ></label> <label class="var" for="female">Женский</label> 
+  </div>
+  <div class="country">
+    <span class="title">Страна:</span>
+    <input class="choice-input" type="text" placeholder="Введите название страны">
+  </div>
+  <div class="city">
+    <span class="title">Город:</span>
+    <input class="choice-input" type="text" placeholder="Введите название города">
+  </div>
+  <input type="submit" id="sumbit-choice" value="Выбрать" />
+</form>
     {% endif %}
 <a href="#" class="open-ram-click" ><svg class="open-ram"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
   width="100" height="100"
